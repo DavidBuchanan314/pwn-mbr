@@ -2,7 +2,7 @@
 A simple MBR hijack demonstration
 
 
-## Principle of operation:
+## Principles of operation:
 
 ### Phase 1: Injection
 
