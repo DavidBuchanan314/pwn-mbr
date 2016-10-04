@@ -56,6 +56,7 @@ doCopy:
 stage2:				; This code will be relocated to 0x8000, be careful!
 	mov	si, 0x7E00
 .copy	lodsb
+	xor	al, 0xA6
 	mov	[si-0x201], al
 	cmp	si, 0x7E00 + payload_len
 	jl 	.copy

@@ -56,6 +56,10 @@ int main(int argc, char *argv[]) {
 	newMBROffset = ftell(fp) - SECTOR_SIZE;
 	
 	printf("Empty sector found at offset 0x%08x. Copying original MBR.\n", newMBROffset);
+	
+	// XOR obfuscate the original MBR
+	for (int i = 0; i < SECTOR_SIZE; i++) mbr[i] ^= 0xA6;
+	
 	// make MBR copy:
 	memcpy(&mbr[SECTOR_SIZE-strlen(BACKUP_MAGIC)], BACKUP_MAGIC, strlen(BACKUP_MAGIC));// add a magic number at the end of the file so we can find it later.
 	fseek(fp, newMBROffset, SEEK_SET);
