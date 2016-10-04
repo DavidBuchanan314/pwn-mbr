@@ -13,8 +13,8 @@ A simple MBR hijack demonstration
 ### Phase 2: Execution
 
 1. Next time the machine is rebooted, the BIOS starts execution of the payload.
-2. In this example, the text "MBR PWNED!" is written to the screen a few hundered times.
-3. The payload locates the backup of the original boot sector via the magic number and copies it over to where it would normally reside in memory (`0x7C00`). However, this is where the payload is initially running from, so it copies itself elsewhere first.
+2. In this example, the text "MBR PWNED!" is written to the screen a few hundred times.
+3. The payload locates the backup of the original boot sector (via the magic number) and copies it over to where it would normally reside in memory (`0x7C00`). However, this is where the payload is initially running from, so it copies itself elsewhere first.
 4. Finally, the payload jumps back to `0x7C00`, resuming normal boot operations.
 
 
