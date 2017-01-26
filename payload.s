@@ -12,7 +12,13 @@ start:
 realstart:
 	cli
 
-	mov	ah, 0x0E
+	xor	ax, ax		; Zero registers for consistency
+	mov	ds, ax
+	mov	es, ax
+	mov	fs, ax
+	mov	gs, ax
+
+	mov	ah, 0x0E	; "Teletype output" mode for int 0x10
 	xor	bl, bl
 .sLoop	sub	bl, 1		; Print our message 255 times
 	or	bl, bl
