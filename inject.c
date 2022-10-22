@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 
 	// overwrite the original MBR
 	payloadfp = fopen("payload", "r");
-	if (payload == NULL) {
+	if (payloadfp == NULL) {
 		printf("Failed opening payload file.\n");
 		fclose(fp);
 		return 1;
